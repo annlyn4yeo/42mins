@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "mock food delivery fe app",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "npx parcel index.html",
+    "build": "npx parcel build index.html"
   },
   "repository": {
     "type": "git",
@@ -16,11 +18,14 @@
   "author": "Annlyn",
   "license": "ISC",
   "devDependencies": {
+    "@parcel/transformer-sass": "^2.12.0",
     "parcel": "^2.12.0",
     "process": "^0.11.10"
   },
   "dependencies": {
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "reset-css": "^5.0.2",
+    "sass": "^1.77.8"
   }
 }
