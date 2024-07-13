@@ -24,6 +24,26 @@ const AppComponent = () => {
   return (
     <div id="app">
       <Header />
+      <Body />
+    </div>
+  );
+};
+
+const RestCard = () => {
+  return (
+    <div className="order-card">
+      <h3>KFC</h3>
+    </div>
+  );
+};
+
+const Body = () => {
+  return (
+    <div className="body">
+      <div className="search">Search</div>
+      <div className="cards__container">
+        <RestCard />
+      </div>
     </div>
   );
 };
