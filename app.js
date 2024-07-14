@@ -29,20 +29,25 @@ const AppComponent = () => {
   );
 };
 
-const RestCard = () => {
+const RestCard = ({ resName, cuisineName }) => {
   return (
     <div className="order-card">
-      <h3>KFC</h3>
+      <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/RX_THUMBNAIL/IMAGES/VENDOR/2024/4/17/9869efb0-ef0e-41eb-bffa-9d6e03eef55e_432976.JPG" />
+      <h3>{resName}</h3>
+      <h5>{cuisineName}</h5>
+      <h6>4.4 Stars</h6>
+      <h6>32 mins</h6>
     </div>
   );
 };
 
 const Body = () => {
   return (
-    <div className="body">
+    <div id="body">
       <div className="search">Search</div>
       <div className="cards__container">
-        <RestCard />
+        <RestCard resName="Leon's" cuisineName="Grills, Wings, Chicken" />
+        <RestCard resName="KFC" cuisineName="Burgers, Fried Chicken, Shakes" />
       </div>
     </div>
   );
