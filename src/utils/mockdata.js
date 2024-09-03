@@ -1,7 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.scss";
-
 const dataObj = [
   {
     info: {
@@ -665,62 +661,4 @@ const dataObj = [
   },
 ];
 
-const Header = () => {
-  return (
-    <div className="header">
-      <div className="logo__container">
-        <img src="https://e7.pngegg.com/pngimages/315/870/png-clipart-swiggy-office-swiggy-corporate-online-food-ordering-discounts-and-allowances-coupon-others-company-text.png" />
-      </div>
-      <div className="nav__items">
-        <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-
-const AppComponent = () => {
-  return (
-    <div id="app">
-      <Header />
-      <Body />
-    </div>
-  );
-};
-
-const RestCard = ({ resData }) => {
-  const { name, avgRating, cloudinaryImageId, costForTwo, deliveryTime } =
-    resData?.info;
-  return (
-    <div className="order-card">
-      <img
-        src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${cloudinaryImageId}`}
-        alt={name}
-      />
-      <h3>{name}</h3>
-      <h6>{avgRating} Stars</h6>
-      <h6>{costForTwo}</h6>
-      <h6>{deliveryTime} Mins</h6>
-    </div>
-  );
-};
-
-const Body = () => {
-  return (
-    <div id="body">
-      <div className="search">Search</div>
-      <div className="cards__container">
-        {dataObj.map((element, index) => (
-          <RestCard key={index} resData={element} />
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppComponent />);
+export default dataObj;
