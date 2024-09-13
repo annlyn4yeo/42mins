@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import RestCard from "./RestrauntCard";
-import dataObj from "../utils/mockdata";
 
 const Body = () => {
   const [restList, setResList] = useState([]);
