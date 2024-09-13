@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import RestCard from "./RestrauntCard";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [restList, setResList] = useState([]);
@@ -15,7 +16,8 @@ const Body = () => {
     );
     const jsonData = await data.json();
     const listOfRestraunts =
-      jsonData.data.cards[1].card.card.gridElements.infoWithStyle.restaurants;
+      jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+        .restaurants;
     setResList(listOfRestraunts);
   };
 
@@ -23,11 +25,11 @@ const Body = () => {
     fetchData();
   }, []);
 
-  return (
+  return restList.length !== 0 ? (
     <div id="body">
       <div className="filter">
         <button className="filter-btn" onClick={handleFilter}>
-          Top Rated Restraunts
+          Top Rated Restaurants
         </button>
       </div>
       <div className="cards__container">
@@ -36,6 +38,8 @@ const Body = () => {
         ))}
       </div>
     </div>
+  ) : (
+    <Shimmer />
   );
 };
 export default Body;
