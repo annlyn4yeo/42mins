@@ -42,4 +42,5 @@ const Body = () => {
     <Shimmer />
   );
 };
+
 export default Body;
