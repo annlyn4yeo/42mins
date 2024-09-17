@@ -3,6 +3,7 @@ import RestCard from "./RestrauntCard";
 import Shimmer from "./Shimmer";
 
 const Body = () => {
+  const [originalList, setOriginalList] = useState([]);
   const [restList, setResList] = useState([]);
   const [searchText, setSearchText] = useState("");
 
@@ -20,10 +21,18 @@ const Body = () => {
       jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         .restaurants;
     setResList(listOfRestraunts);
+    setOriginalList(listOfRestraunts);
   };
 
   const handleSearch = () => {
-    console.log(searchText);
+    if (!searchText.trim()) {
+      setResList(originalList);
+    } else {
+      const filteredRestraunts = originalList.filter((res) =>
+        res.info.name.toLowerCase().includes(searchText.toLowerCase())
+      );
+      setResList(filteredRestraunts);
+    }
   };
 
   const handleSearchChange = (e) => {
