@@ -4,6 +4,7 @@ import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [restList, setResList] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
   const handleFilter = () => {
     let filteredList = restList.filter((res) => res.info.avgRating > 4);
@@ -21,6 +22,14 @@ const Body = () => {
     setResList(listOfRestraunts);
   };
 
+  const handleSearch = () => {
+    console.log(searchText);
+  };
+
+  const handleSearchChange = (e) => {
+    setSearchText(e.target.value);
+  };
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -28,9 +37,23 @@ const Body = () => {
   return restList.length !== 0 ? (
     <div id="body">
       <div className="filter">
-        <button className="filter-btn" onClick={handleFilter}>
-          Top Rated Restaurants
-        </button>
+        <div className="search-sort-wrap">
+          <button className="filter-btn" onClick={handleFilter}>
+            Top Rated Restaurants
+          </button>
+          <div className="search-wrap">
+            <input
+              className="search-box"
+              placeholder="search"
+              type="text"
+              value={searchText}
+              onChange={handleSearchChange}
+            ></input>
+            <button className="search-btn" onClick={handleSearch}>
+              Search
+            </button>
+          </div>
+        </div>
       </div>
       <div className="cards__container">
         {restList.map((element) => (
